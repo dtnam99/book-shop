@@ -9,9 +9,11 @@ import userRoute from "./routes/userRoute";
 import productRoute from "./routes/productRoute";
 import orderRoute from "./routes/orderRoute";
 import genreRoute from "./routes/genreRoute";
+import authorRoute from "./routes/authorRoute";
 import { 
     createInitialEnums, 
-    createInitialAuthors, 
+    createInitialAuthors,
+    // createInitialGenres,
     createInitialProducts
 } from "./utils/createData";
 
@@ -38,6 +40,7 @@ app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/genres", genreRoute);
+app.use("/api/authors", authorRoute);
 app.get("/api", (req, res) => {
     res.send("Atticus Literature's api is running");
 });
@@ -47,6 +50,7 @@ const main = async () => {
     try {   
         await createInitialEnums();
         await createInitialAuthors();
+        // await createInitialGenres();
         await createInitialProducts();
         console.log('Initial data is successfully prepared!!!');
     } catch (error) {

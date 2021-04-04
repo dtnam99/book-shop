@@ -2,6 +2,7 @@
 import { initial_data } from "./initial_data";
 
 import Author from "../models/authorModel";
+import Genres from "../models/genresModel"
 import Product from "../models/productModel";
 import { UserEnumRole } from "../enums/userEnums";
 import { 
@@ -94,6 +95,28 @@ const createInitialAuthors = async () => {
         console.error(`Error occurs: ${error}`);
     }
 }
+// const createInitialGenres = async () => {
+//     const genresList = initial_data.genres;
+//     try {      
+//         await Promise.all(genresList.map(async (genre) => {
+//             const existedGenre = await Genres.findOne({name: genre.name});
+//             if(existedGenre) {
+//                 console.log(`Genre: "${genre.name}" exists, no need to import 1.`)
+//             } else {
+//                 await Genres.create(genre).then((newGenre, err) => {
+//                     if(err) {
+//                         throw err;
+//                     } else {
+//                         console.log(`Genre: "${newGenre.name}" is inserted in Genre Schema.`);
+//                     }
+//                 });
+//             }
+//         }))
+//         console.log('All initial genre are inserted in DB!');
+//     } catch (error) {
+//         console.error(`Error occurs: ${error}`);
+//     }
+// }
 
 const createInitialProducts = async () => {
     const productList = initial_data.productsInStore;

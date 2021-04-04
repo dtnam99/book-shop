@@ -1,4 +1,4 @@
 ENV=develop
-MONGODB_URL=mongodb://localhost/atticus-literature
+MONGODB_URL=mongodb+srv://devHTTT2020:5T7Pr41EXIzDmWmi@cluster0.wfafv.mongodb.net/atticus-literature?retryWrites=true&w=majority
 JWT_SECRET=somethingsecret
 STRIPE_PUBLIC_KEY=pk_test_nqH70Fb8FmabuVsU5kp4gpYf00XGNeVxyf
