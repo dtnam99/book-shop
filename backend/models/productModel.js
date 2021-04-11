@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
     genres: [
         { 
             type: String, 
-            ref: 'ProductEnumGenres',
+            ref: 'Genre',
             required: true,
         },
     ],

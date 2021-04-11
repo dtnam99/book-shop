@@ -1,16 +1,16 @@
 version: "3.8"
 
 services:
-  # db:
-  #   image: mongo:4.0
-  #   restart: always
-  #   volumes:
-  #     - db-data:/data/db
-  #   ports: 
-  #     - 27017:27017
-  #   command: mongod --noauth --smallfiles
-  #   networks:
-  #     - database-api
+  db:
+    image: mongo:4.0
+    restart: always
+    volumes:
+      - db-data:/data/db
+    ports: 
+      - 27017:27017
+    command: mongod --noauth --smallfiles
+    # networks:
+    #   - database-api
   api:
     container_name: api-hub
     # build:
@@ -21,7 +21,9 @@ services:
     #   - /home/node/app/node_modules
     #   - ./backend:/home/node/app
     environment: 
-      - MONGODB_URL=mongodb+srv://user:password@cluster0.mg9jn.mongodb.net/atticus-literature
+      - MONGODB_URL=mongodb+srv://devHTTT2020:5T7Pr41EXIzDmWmi@cluster0.wfafv.mongodb.net/atticus-literature?retryWrites=true&w=majority
+      # - MONGODB_URL=mongodb+srv://nam0908:JReu9aBIaQHAdAsK@cluster0.hhahn.mongodb.net/atticus-literature?retryWrites=true&w=majority
+     # - MONGODB_URL=mongodb+srv://nam1304:6E82yABpvb9aHNz@cluster0.mg9jn.mongodb.net/atticus-literature
     # ports: 
       # - 5000:5000
     networks: 
@@ -37,6 +39,7 @@ services:
     #   - ./frontend:/home/node/app
     depends_on:
       - api
+      - db
     # ports: 
     #   - 3000:3000
     networks: 

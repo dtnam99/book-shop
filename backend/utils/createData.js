@@ -1,14 +1,12 @@
-
 import { initial_data } from "./initial_data";
-
 import Author from "../models/authorModel";
-import Genres from "../models/genresModel"
 import Product from "../models/productModel";
+import Genre from "./../models/genreModel";
 import { UserEnumRole } from "../enums/userEnums";
 import { 
     ProductEnumOrigin,
     ProductEnumLanguage,
-    ProductEnumGenre,
+    // ProductEnumGenre,
     ProductEnumCurrency,
 } from "../enums/productEnums";
 import { 
@@ -41,7 +39,7 @@ const createInitialEnums = async () => {
     const { 
         UserEnumRole: userRoles,
         ProductEnumOrigin: productOrigins,
-        ProductEnumGenre: productGenres,
+        // ProductEnumGenre: productGenres,
         ProductEnumLanguage: productLanguages,
         ProductEnumCurrency: productCurrencies,
         OrderEnumStatus: orderStatus,
@@ -50,7 +48,7 @@ const createInitialEnums = async () => {
     try {
         const promiseUserRoles = await insertEnum(userRoles, UserEnumRole);
         const promiseProductOrigins = await insertEnum(productOrigins, ProductEnumOrigin);
-        const promiseProductGenres = await insertEnum(productGenres, ProductEnumGenre);
+        // const promiseProductGenres = await insertEnum(productGenres, ProductEnumGenre);
         const promiseProductLanguages = await insertEnum(productLanguages, ProductEnumLanguage);
         const promiseProductCurrencies = await insertEnum(productCurrencies, ProductEnumCurrency);
         const promiseOrderStatus = await insertEnum(orderStatus, OrderEnumStatus);
@@ -58,7 +56,7 @@ const createInitialEnums = async () => {
         await Promise.all([
             promiseUserRoles,
             promiseProductOrigins,
-            promiseProductGenres,
+            // promiseProductGenres,
             promiseProductLanguages,
             promiseProductCurrencies,
             promiseOrderStatus,
@@ -95,28 +93,28 @@ const createInitialAuthors = async () => {
         console.error(`Error occurs: ${error}`);
     }
 }
-// const createInitialGenres = async () => {
-//     const genresList = initial_data.genres;
-//     try {      
-//         await Promise.all(genresList.map(async (genre) => {
-//             const existedGenre = await Genres.findOne({name: genre.name});
-//             if(existedGenre) {
-//                 console.log(`Genre: "${genre.name}" exists, no need to import 1.`)
-//             } else {
-//                 await Genres.create(genre).then((newGenre, err) => {
-//                     if(err) {
-//                         throw err;
-//                     } else {
-//                         console.log(`Genre: "${newGenre.name}" is inserted in Genre Schema.`);
-//                     }
-//                 });
-//             }
-//         }))
-//         console.log('All initial genre are inserted in DB!');
-//     } catch (error) {
-//         console.error(`Error occurs: ${error}`);
-//     }
-// }
+const createInitialGenres = async () => {
+    const genresList = initial_data.ProductEnumGenre;
+    try {      
+        await Promise.all(genresList.map(async (genre) => {
+            const existedGenre = await Genre.findOne({_id: genre});
+            if(existedGenre) {
+                console.log(`Genre: "${genre._id}" exists, no need to import.`)
+            } else {
+                await Genre.create(genre).then((newGenre, err) => {
+                    if(err) {
+                        throw err;
+                    } else {
+                        console.log(`Genre: "${newGenre._id}" is inserted in Genre Schema.`);
+                    }
+                });
+            }
+        }))
+        console.log('All initial genre are inserted in DB!');
+    } catch (error) {
+        console.error(`Error occurs: ${error}`);
+    }
+}
 
 const createInitialProducts = async () => {
     const productList = initial_data.productsInStore;
@@ -152,5 +150,6 @@ const createInitialProducts = async () => {
 export { 
     createInitialEnums,
     createInitialAuthors,
-    createInitialProducts
+    createInitialProducts,
+    createInitialGenres
 }

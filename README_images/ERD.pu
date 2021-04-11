@@ -1,0 +1,96 @@
+@startuml
+skinparam linetype ortho
+skinparam padding 5
+package Shangri-La {
+
+    Class User {
+        id: uuid
+        first_name: text
+        last_name: text
+        nick_name: text
+        password: text
+        email: text
+        address: text
+        phone: text
+        role: UserEnumRole
+    }
+
+    Class Author {
+        id : uuid
+        name: text
+        img: text
+    }
+
+    Class Order {
+        id : uuid
+        name: text
+        img: text
+    }
+
+    Enum ProductEnumGenre {
+        CRIME
+        MYSTERY
+        CLASSIC
+        SCIENCE
+        THRILLER
+        FICTION
+        HISTORICAL
+        COMTEMPORARY
+        POETRY
+        PLAY
+        TEENAGE
+        CHILDREN
+        COMIC
+        FANTASY
+        HUMOROUS
+        POLITIC
+    }
+
+    Enum ProductEnumOrigin {
+        VIETNAMESE
+        CHINESE
+        JAPANESE
+        ASIAN        
+        AMERICAN
+        ENGLISH
+        RUSSIAN
+        WESTERN
+        OTHER
+    }
+
+    Enum ProductEnumCurrency {
+        USD
+        VND
+    }
+
+    Enum ProductEnumLanguage {
+        VIETNAMESE
+        CHINESE
+        JAPANESE   
+        ENGLISH
+    }
+
+    Enum UserEnumRole {
+        CLIENT
+        ADMIN
+        SUPER_ADMIN
+    }
+
+    Enum OrderEnumStatus {
+        PROCESSING
+        ACCEPTED
+        SHIPPING
+        SHIPPED
+        DELIVERED
+    }
+
+    Enum OrderEnumPaymentMethod {
+        CASH
+        CREDIT
+        PAYPAL
+    }
+
+    User --{ UserEnumRole
+}
+
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor User
+actor Employee
+rectangle Shangri-La{
+    User -- Signin
+    User -- Cart
+}
+
+@enduml

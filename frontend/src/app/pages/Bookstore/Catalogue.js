@@ -157,7 +157,7 @@ const Catalogue = ({ noLastBorderBottom = false }) => {
                                     className={clsx(classes.subtitle, classes.buttonHover)}
                                     >
                                     <Typography variant='body1'>
-                                        <FormattedMessage id={genre._id} defaultMessage={genre._id} />
+                                        <FormattedMessage id={genre._id} defaultMessage={genre} />
                                     </Typography>
                                 </IconButton>
                             ))

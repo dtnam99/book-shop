@@ -5,8 +5,8 @@ const EnumSchema = new mongoose.Schema({
 })
 
 const ProductEnumOrigin = mongoose.model("ProductEnumOrigin", EnumSchema)
-const ProductEnumGenre = mongoose.model("ProductEnumGenre", EnumSchema)
+// const ProductEnumGenre = mongoose.model("ProductEnumGenre", EnumSchema)
 const ProductEnumCurrency = mongoose.model("ProductEnumCurrency", EnumSchema)
 const ProductEnumLanguage = mongoose.model("ProductEnumLanguage", EnumSchema)
 
-export { ProductEnumOrigin, ProductEnumGenre, ProductEnumCurrency, ProductEnumLanguage };
+export { ProductEnumOrigin, ProductEnumCurrency, ProductEnumLanguage };

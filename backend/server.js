@@ -13,7 +13,7 @@ import authorRoute from "./routes/authorRoute";
 import { 
     createInitialEnums, 
     createInitialAuthors,
-    // createInitialGenres,
+    createInitialGenres,
     createInitialProducts
 } from "./utils/createData";
 
@@ -48,10 +48,11 @@ app.get("/api", (req, res) => {
 const main = async () => {
     console.log(`Server started at http://localhost:${config.PORT}`);
     try {   
-        await createInitialEnums();
-        await createInitialAuthors();
+        // await createInitialEnums();
+        // await createInitialAuthors();
+        // //await createInitialGenres();
+        // await createInitialProducts();
         // await createInitialGenres();
-        await createInitialProducts();
         console.log('Initial data is successfully prepared!!!');
     } catch (error) {
         console.error(error);

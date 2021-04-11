@@ -4,7 +4,7 @@ import controller from "../controllers/genresController"
 
 const router = express.Router();
 
-router.get("/", controller.findAll)
+router.get("/", controller.findAll);
 
 router.post("/new-genres", controller.createGenre);
 router.post("/delete-genre/:id", controller.deleteGenre);
