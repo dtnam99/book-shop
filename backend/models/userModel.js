@@ -8,21 +8,22 @@ const userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true, trim: true},
     address: { type: String },
     city: { 
-        name: { type: String, required: true },
+        name: { type: String },
     },
     state: { 
-        name: { type: String, required: true },
-        isoCode: { type: String, required: true },
+        name: { type: String, required: false },
+        isoCode: { type: String, required: false },
     },
     country:  { 
-        name: { type: String, required: true },
-        isoCode: { type: String, required: true },
+        name: { type: String },
+        isoCode: { type: String },
     },
     phone: { type: String },
     role: { 
         type: String,
         ref: 'UserEnumRole',
-        required: true, 
+        required: true,
+        default: 'client',
     },
     favorites: [{type: mongoose.Schema.ObjectId, ref: 'Product', unique: true}],
     orders: [{type: mongoose.Schema.ObjectId, ref: 'Order', unique: true}],

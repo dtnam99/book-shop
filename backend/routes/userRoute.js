@@ -4,8 +4,11 @@ import bcrypt from "bcrypt";
 import {getToken, isAuth} from "../auth/authHelper";
 import User from "../models/userModel";
 import Product from "../models/productModel";
+import controller from "./../controllers/userController"
 
 const router = express.Router();
+
+router.get("/list", controller.findAll);
 
 router.post("/register", 
     [
