@@ -17,6 +17,7 @@ const useStyle = makeStyles((theme) => ({
         position: 'fixed',
         backgroundColor: theme.palette.navBar.main,
         color: theme.palette.text.main,
+        zIndex: 1,
     },
     pagesSections: {
         position: 'absolute',

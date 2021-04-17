@@ -198,6 +198,13 @@ const NavBar = withRouter(({history}) => {
                                 </Typography>
                             </IconButton>
                         </Link>
+                        <Link to='/admin_dashboard/' className={classes.link}>
+                            <IconButton className={classes.noBorderRadius}>
+                                <Typography variant='h6'>
+                                    <FormattedMessage id='admin' defaultMessage='Admin'/>
+                                </Typography>
+                            </IconButton>
+                        </Link>
                     </div>
                     </Hidden>
                     <div className={classes.grow} />

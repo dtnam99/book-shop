@@ -24,6 +24,7 @@ import PageNotFound from './pages/PageNotFound';
 import UnderConstruction from "./pages/UnderConstruction";
 import AuthPopup from './features/AuthPopup';
 import Notification from './features/Notification';
+import AdminDashBoard from "./../admin/AdminDashBoard";
 
 function App() {
   const language = useSelector(state => state.language);
@@ -56,13 +57,13 @@ function App() {
               <Route path="/product/:id" component={Product} />
               <Route path="/bookstore/" component={Bookstore} />
               <Route path="/about_us/" component={AboutUS} />
+              <Route path="/admin_dashboard/" component={AdminDashBoard} />
               <Route path="/checkout/" component={Checkout} />
               <Route path="/order_process/" component={OrderProcess} />
               <Route path="/under_construction/" component={UnderConstruction} />
               <Route component={PageNotFound} />
             </Switch>
             <CopyRight />
-
           </RedirectOpenContext.Provider>
           </AuthOpenContext.Provider>
           </CartOpenContext.Provider>
